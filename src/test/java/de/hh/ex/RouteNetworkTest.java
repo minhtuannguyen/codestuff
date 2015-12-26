@@ -19,9 +19,10 @@ public class RouteNetworkTest {
         int[] route = new int[]{1, 3, 4, 6, 8, 5};
 
         //When
-        int result = RouteNetwork.find(route);
+        int position = RouteNetwork.find(route);
 
-        assertEquals(4, result);
+        //Then
+        assertEquals(position, 4);
     }
 
     @Test
@@ -30,19 +31,33 @@ public class RouteNetworkTest {
         int[] route = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 10, 12};
 
         //When
-        int result = RouteNetwork.find(route);
+        int position = RouteNetwork.find(route);
 
-        assertEquals(9, result);
+        //Then
+        assertEquals(position, 9);
     }
 
     @Test
     public void interceptPointIsThe11() throws Exception {
         //Given
-        int[] route = new int[]{-1, 2, -3, -5, -7, 6, -9, -11, 20, 40, -60};
+        int[] route = new int[]{-1, 2, -3, -5, -7, 6, -9, -11, 20, 40, -60, 20};
 
         //When
-        int result = RouteNetwork.find(route);
+        int position = RouteNetwork.find(route);
 
-        assertEquals(10, result);
+        //Then
+        assertEquals(position, 10);
+    }
+
+    @Test
+    public void interceptPointIsThe3Position() throws Exception {
+        //Given
+        int[] route = new int[]{1, 2, 4, 6, 8, 10, 12};
+
+        //When
+        int position = RouteNetwork.find(route);
+
+        //Then
+        assertEquals(position, 3);
     }
 }
