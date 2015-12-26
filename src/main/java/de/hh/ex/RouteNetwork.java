@@ -3,7 +3,7 @@ package de.hh.ex;
 /**
  * the input array represents a route network.
  * uneven number means up
- * uneven number means to the right
+ * even number means to the right
  * Find one solution which scales with O(n) to find
  * the first point of intersection of the route network
  */
@@ -11,13 +11,13 @@ package de.hh.ex;
 public class RouteNetwork {
 
     /* the first point of intersection is located in the array
-    *  where three positive number occur at the same time
+    *  where three positive numbers occur one after another
     */
     static int find(int[] route) {
-        // translate to binary array: {-1, 2, 3, 4, 5, -6} -> {0, 1, 1, 1, 1, 0}
+        // translate to binary array: {1, 3, 4, 6, 8, 5} -> {0, 1, 1, 1, 1, 0}
         int[] binaryRoute = new int[route.length];
         for (int i = 0; i < route.length; i++) {
-            binaryRoute[i] = route[i] > 0 ? 1 : 0;
+            binaryRoute[i] = route[i] % 2 == 0 ? 1 : 0;
         }
 
         int sum = 0;
